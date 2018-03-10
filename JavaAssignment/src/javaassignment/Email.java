@@ -20,15 +20,20 @@ public class Email extends Exception {
         Scanner s=new Scanner(System.in);
        email= s.next();
        if(!email.contains("@")){
-           throw InvalidAddress("input error");
+           throw new InvalidAddress("Invalid Address");
        }
        else{
            System.out.println("Sucessfull...");
        }
     }
 
-    private  static Exception InvalidAddress(String input_error) throws Exception {
-        throw new Exception("Invalid Address"); //To change body of generated methods, choose Tools | Templates.
+    
+
+    private static class InvalidAddress extends Exception {
+
+        public InvalidAddress(String input_error) {
+            System.out.println(input_error);
+        }
     }
     
 }
